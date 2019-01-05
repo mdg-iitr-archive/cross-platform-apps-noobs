@@ -19,3 +19,17 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  assets:
+    - images/angry.gif
+    - images/angry2.png
+    - images/haha.gif
+    - images/haha2.png
+    - images/ic_like.png
+    - images/ic_like_fill.png
+    - images/like.gif
+    - images/love.gif
+    - images/love2.png
+    - images/sad.gif
+    - images/sad2.png
+    - images/wow.gif
+    - images/wow2.png
