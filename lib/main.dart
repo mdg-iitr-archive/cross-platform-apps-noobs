@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  void _showSnackbar(BuildContext context) {
-    Scaffold.of(context)
-        .showSnackBar(new SnackBar(content: const Text('Button Clicked')));
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,19 +11,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('FB Reaction'),
         ),
-        body: Builder(
-          builder: (context) => Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 128.0, right: 128.0),
-                  child: OutlineButton(
-                      onPressed: () => _showSnackbar(context),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[LikeImage(), LikeText()],
-                      )),
-                ),
-              ),
-        ),
+        body: ManageButton(),
       ),
     );
   }
@@ -58,5 +41,54 @@ class LikeText extends StatelessWidget {
     Text txt = new Text('Like');
 
     return Padding(padding: EdgeInsets.only(left: 16.0), child: txt);
+  }
+}
+
+class ColoredLikeText extends StatelessWidget {
+  final color = const Color(0xff3b5997);
+  @override
+  Widget build(BuildContext context) {
+    Text txt = new Text(
+      'Like',
+      style: TextStyle(color: color, fontWeight: FontWeight.bold),
+    );
+
+    return Padding(padding: EdgeInsets.only(left: 16.0), child: txt);
+  }
+}
+
+class ManageButton extends StatefulWidget {
+  ManageButton({Key key}) : super(key: key);
+
+  @override
+  ManageButtonState createState() => ManageButtonState();
+}
+
+class ManageButtonState extends State<ManageButton> {
+  bool _isPressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) => Center(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 128.0, right: 128.0),
+              child: OutlineButton(
+                onPressed: () => setState(() {
+                      _isPressed = (_isPressed) ? false : true;
+                    }),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    (_isPressed ? FillLikeImage() : LikeImage()),
+                    (_isPressed ? ColoredLikeText() : LikeText())
+                  ],
+                ),
+                borderSide:
+                    (_isPressed ? BorderSide(color: Color(0xff3b5997)) : null),
+              ),
+            ),
+          ),
+    );
   }
 }
