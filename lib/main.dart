@@ -62,7 +62,11 @@ class Like extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/like.gif');
     Image image = Image(image: assetImage);
-    return Container(height: 25.0, width: 25.0, child: image);
+    return Container(
+        height: 35.0,
+        width: 35.0,
+        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 3.0),
+        child: image);
   }
 }
 
@@ -71,7 +75,11 @@ class Love extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/love.gif');
     Image image = Image(image: assetImage);
-    return Container(height: 25.0, width: 25.0, child: image);
+    return Container(
+        height: 35.0,
+        width: 35.0,
+        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 3.0),
+        child: image);
   }
 }
 
@@ -80,7 +88,11 @@ class Haha extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/haha.gif');
     Image image = Image(image: assetImage);
-    return Container(height: 25.0, width: 25.0, child: image);
+    return Container(
+        height: 35.0,
+        width: 35.0,
+        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 3.0),
+        child: image);
   }
 }
 
@@ -89,7 +101,11 @@ class Wow extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/wow.gif');
     Image image = Image(image: assetImage);
-    return Container(height: 25.0, width: 25.0, child: image);
+    return Container(
+        height: 35.0,
+        width: 35.0,
+        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 3.0),
+        child: image);
   }
 }
 
@@ -98,7 +114,11 @@ class Sad extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/sad.gif');
     Image image = Image(image: assetImage);
-    return Container(height: 25.0, width: 25.0, child: image);
+    return Container(
+        height: 35.0,
+        width: 35.0,
+        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 3.0),
+        child: image);
   }
 }
 
@@ -107,7 +127,11 @@ class Angry extends StatelessWidget {
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage('images/angry.gif');
     Image image = Image(image: assetImage);
-    return Container(height: 25.0, width: 25.0, child: image);
+    return Container(
+        height: 35.0,
+        width: 35.0,
+        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+        child: image);
   }
 }
 
@@ -301,14 +325,25 @@ class ManageButtonState extends State<ManageButton> {
     return Builder(
         builder: (context) => Center(
               child: Container(
-                width: 175.0,
+                width: 210.0,
+                padding: EdgeInsets.only(bottom: 50.0, top: 15.0),
                 alignment: Alignment(0.0, 0.0),
                 child: Column(
                   children: <Widget>[
                     (!_isLongPressed
-                        ? Container(width: 250.0, height: 25)
+                        ? Container(width: 250.0, height: 35)
                         : Container(
-                            width: 250.0,
+                            width: 500.0,
+                            decoration: BoxDecoration(
+                                color: Color(0xffece6e6),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8.0)),
+                                boxShadow: [
+                                  new BoxShadow(
+                                    color: Color(0xffadaaaa),
+                                    blurRadius: 20.0,
+                                  ),
+                                ]),
                             child: Row(
                               children: <Widget>[
                                 GestureDetector(
@@ -373,6 +408,9 @@ class ManageButtonState extends State<ManageButton> {
                               _isPressed = false;
                             }),
                         child: OutlineButton(
+                          splashColor: Color(0xffffffff),
+                          highlightColor: Color(0x50e9e2e2),
+                          color: Color(0xffffffff),
                           onPressed: () => setState(() {
                                 _isPressed = !_isPressed;
                                 _isLongPressed = false;
